@@ -70,3 +70,8 @@ src_prepare() {
 	npm install
 	cmake_src_prepare
 }
+
+src_install() {
+	install -D -m 0644 packaging/linux/sunshine.desktop "${D}/usr/share/applications/sunshine.desktop"
+	default
+}
