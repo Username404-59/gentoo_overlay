@@ -21,7 +21,6 @@ HOMEPAGE="https://github.com/LizardByte/Sunshine"
 LICENSE="GPL-3"
 SLOT="0"
 IUSE="cuda +kms +systray wayland X"
-FEATURES="-network-sandbox"
 
 RDEPEND="
 		dev-libs/boost
@@ -46,7 +45,7 @@ BDEPEND="
 "
 
 pkg_setup() {
-	if [ "${FEATURES#*"-network-sandbox"}" == "$FEATURES" ]; then
+	if [ "${FEATURES#*"-network-sandbox"}" != "$FEATURES" ]; then
 		die "FEATURES=\"-network-sandbox\" needs to be set for this package"
 	fi
 	return
@@ -71,7 +70,19 @@ src_prepare() {
 	cmake_src_prepare
 }
 
+DESKTOP_FILE="[Desktop Entry]
+Type=Application
+Name=Sunshine
+Path=/usr/bin
+Exec=sunshine
+Version=1.0
+Comment=Sunshine is a self-hosted game stream host for Moonlight
+Icon=sunshine
+Categories=Utility;
+Terminal=true"
+
 src_install() {
+	echo "${DESKTOP_FILE}" > sunshine.desktop
 	install -D -m 0644 sunshine.desktop "${D}/usr/share/applications/sunshine.desktop"
 	default
 }
