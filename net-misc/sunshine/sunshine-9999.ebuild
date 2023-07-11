@@ -59,6 +59,8 @@ src_configure() {
 			-DSUNSHINE_ENABLE_CUDA="$(usex cuda)"
 			-DSUNSHINE_ENABLE_TRAY="$(usex systray)"
 			-DSUNSHINE_ENABLE_DRM="$(usex kms)"
+			-DCMAKE_INSTALL_PREFIX="/usr"
+			-DSUNSHINE_ASSETS_DIR="share/sunshine_assets"
 		)
 		CMAKE_BUILD_TYPE=Release
 		cmake_src_configure
