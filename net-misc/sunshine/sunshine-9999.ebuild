@@ -45,7 +45,7 @@ BDEPEND="
 "
 
 pkg_setup() {
-	if [ "${FEATURES#*"-network-sandbox"}" != "$FEATURES" ]; then
+	if [ "${FEATURES#*"-network-sandbox"}" == "$FEATURES" ]; then
 		die "FEATURES=\"-network-sandbox\" needs to be set for this package"
 	fi
 	return
