@@ -67,6 +67,7 @@ src_install() {
 	patchelf --replace-needed craftos2-lua/src/liblua.so libcraftos2-lua.so "${D}/usr/bin/craftos"
 	mkdir -p "${D}/usr/include"
 	cp -R api "${D}/usr/include/CraftOS-PC"
+	sed -i '/Exec=craftos/c\Exec=craftos --rom /usr/local/share/craftos' icons/CraftOS-PC.desktop
 	install -D -m 0644 icons/CraftOS-PC.desktop "${D}/usr/share/applications/CraftOS-PC.desktop"
 	install -D -m 0644 icons/16.png "${D}/usr/share/icons/hicolor/16x16/apps/craftos.png"
 	install -D -m 0644 icons/24.png "${D}/usr/share/icons/hicolor/24x24/apps/craftos.png"
