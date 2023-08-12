@@ -56,8 +56,9 @@ src_configure() {
 
 src_compile() {
 	emake -C craftos2-lua linux \
-		CXXFLAGS="${CXXFLAGS}" \
-		CFLAGS="${CFLAGS}"
+		CXXFLAGS="${CXXFLAGS} -fPIC" \
+		CFLAGS="${CFLAGS} -fPIC" \
+		LDFLAGS="${LDFLAGS}"
 	default
 }
 
