@@ -10,7 +10,6 @@ if [[ ${PV} = 9999* ]]; then
 else
 	SRC_URI="https://github.com/MCJack123/craftos2/archive/refs/tags/v${PV}.tar.gz"
 	KEYWORDS="amd64 arm64 ia64 ppc64"
-	S="${WORKDIR}"
 fi
 
 DESCRIPTION="A fast, modern, and feature-filled ComputerCraft emulator written in C++"
