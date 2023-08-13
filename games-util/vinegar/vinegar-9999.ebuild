@@ -11,7 +11,6 @@ if [[ ${PV} = 9999* ]]; then
 else
 	SRC_URI="https://github.com/vinegarhq/vinegar/archive/refs/tags/v${PV}.tar.gz"
 	KEYWORDS="amd64"
-	S="${WORKDIR}"
 fi
 
 DESCRIPTION="An open-source, minimal, configurable, fast bootstrapper for running Roblox on Linux"
