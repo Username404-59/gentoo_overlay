@@ -51,6 +51,7 @@ src_configure() {
 			-DSUNSHINE_ENABLE_TRAY="$(usex systray)"
 			-DSUNSHINE_ENABLE_DRM="$(usex kms)"
 			-DCMAKE_INSTALL_PREFIX="/usr"
+			-DSUNSHINE_EXECUTABLE_PATH="/usr/bin/sunshine"
 			-DSUNSHINE_ASSETS_DIR="share/sunshine_assets"
 		)
 		CMAKE_BUILD_TYPE=Release
@@ -58,14 +59,13 @@ src_configure() {
 }
 
 src_prepare() {
-	npm install
+	npm install # network-sandbox needs to be disabled
 	cmake_src_prepare
 }
 
 DESKTOP_FILE="[Desktop Entry]
 Type=Application
 Name=Sunshine
-Path=/usr/bin
 Exec=sunshine
 Version=1.0
 Comment=Sunshine is a self-hosted game stream host for Moonlight
