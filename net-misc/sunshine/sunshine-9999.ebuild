@@ -10,7 +10,6 @@ if [[ ${PV} = 9999* ]]; then
 else
 	SRC_URI="https://github.com/LizardByte/Sunshine/archive/refs/tags/v${PV}.tar.gz"
 	KEYWORDS="~amd64"
-	S="${WORKDIR}"
 fi
 
 inherit cmake
