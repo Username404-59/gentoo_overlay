@@ -44,13 +44,6 @@ BDEPEND="
 		cuda? ( dev-util/nvidia-cuda-toolkit )
 "
 
-pkg_setup() {
-	if [ "${FEATURES#*"-network-sandbox"}" == "$FEATURES" ]; then
-		die "FEATURES=\"-network-sandbox\" needs to be set for this package"
-	fi
-	return
-}
-
 src_configure() {
 		local mycmakeargs=(
 			-DSUNSHINE_ENABLE_WAYLAND="$(usex wayland)"
