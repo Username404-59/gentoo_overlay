@@ -35,7 +35,6 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
-		sys-devel/make
 		dev-util/patchelf
 		app-arch/unzip
 "
