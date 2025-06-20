@@ -64,7 +64,8 @@ src_install() {
 	mkdir -p "${D}/usr/bin"
 	DEST_DIR="${D}/usr/bin" emake install
 	mv "${D}/usr/craftos" "${D}/usr/bin/craftos"
-	install -D -m 0755 craftos2-lua/src/liblua.so "${D}/usr/lib64/libcraftos2-lua.so.0"
+	mv craftos2-lua/src/liblua.so craftos2-lua/src/libcraftos2-lua.so.0
+	dolib.so craftos2-lua/src/libcraftos2-lua.so.0
 	patchelf --replace-needed craftos2-lua/src/liblua.so libcraftos2-lua.so.0 "${D}/usr/bin/craftos"
 	mkdir -p "${D}/usr/include"
 	cp -R api "${D}/usr/include/CraftOS-PC"
